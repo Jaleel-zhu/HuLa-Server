@@ -36,7 +36,7 @@
         <maven-model.version>3.9.6</maven-model.version>
         <redisson-spring-boot-starter.version>3.24.1</redisson-spring-boot-starter.version>
         <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
-        <rocketmq-spring-boot-starter.version>2.2.2</rocketmq-spring-boot-starter.version>
+        <spring-boot-starter-amqp.version>3.2.1</spring-boot-starter-amqp.version>
         <knife4j-openapi3-jakarta-spring-boot-starter.version>4.4.0</knife4j-openapi3-jakarta-spring-boot-starter.version>
         <springdoc-openapi-starter-webmvc-api.version>2.2.0</springdoc-openapi-starter-webmvc-api.version>
         <swagger-annotations.version>1.6.2</swagger-annotations.version>
@@ -186,9 +186,9 @@
                 <version>${maven-model.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.rocketmq</groupId>
-                <artifactId>rocketmq-spring-boot-starter</artifactId>
-                <version>${rocketmq-spring-boot-starter.version}</version>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-amqp</artifactId>
+                <version>${spring-boot-starter-amqp.version}</version>
             </dependency>
             <!-- 生成接口文档 -->
             <dependency>

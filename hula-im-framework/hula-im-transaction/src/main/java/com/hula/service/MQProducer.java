@@ -2,7 +2,7 @@ package com.hula.service;
 
 import com.hula.annotation.SecureInvoke;
 import jakarta.annotation.Resource;
-import org.apache.rocketmq.spring.core.RocketMQTemplate;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
 
@@ -13,11 +13,10 @@ import org.springframework.messaging.support.MessageBuilder;
 public class MQProducer {
 
     @Resource
-    private RocketMQTemplate rocketMqTemplate;
+    private RabbitTemplate rabbitTemplate;
 
     public void sendMsg(String topic, Object body) {
-        Message<Object> build = MessageBuilder.withPayload(body).build();
-        rocketMqTemplate.send(topic, build);
+        rabbitTemplate.convertAndSend(topic, body);
     }
 
     /**
@@ -28,10 +27,9 @@ public class MQProducer {
      */
     @SecureInvoke
     public void sendSecureMsg(String topic, Object body, Object key) {
-        Message<Object> build = MessageBuilder
-                .withPayload(body)
-                .setHeader("KEYS", key)
-                .build();
-        rocketMqTemplate.send(topic, build);
+        rabbitTemplate.convertAndSend(topic, body, message -> {
+            message.getMessageProperties().setHeader("KEYS", key);
+            return message;
+        });
     }
 }

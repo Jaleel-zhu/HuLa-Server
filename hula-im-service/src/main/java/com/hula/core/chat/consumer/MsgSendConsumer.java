@@ -19,9 +19,7 @@ import com.hula.core.user.service.adapter.WsAdapter;
 import com.hula.core.user.service.impl.PushService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.rocketmq.spring.annotation.MessageModel;
-import org.apache.rocketmq.spring.annotation.RocketMQMessageListener;
-import org.apache.rocketmq.spring.core.RocketMQListener;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -34,10 +32,9 @@ import java.util.Objects;
  * @author nyh
  */
 @Slf4j
-@RocketMQMessageListener(consumerGroup = MqConstant.SEND_MSG_GROUP, topic = MqConstant.SEND_MSG_TOPIC, messageModel = MessageModel.BROADCASTING)
 @Component
 @AllArgsConstructor
-public class MsgSendConsumer implements RocketMQListener<MsgSendMessageDTO> {
+public class MsgSendConsumer {
 
     private ChatService chatService;
     private MessageDao messageDao;
@@ -49,7 +46,7 @@ public class MsgSendConsumer implements RocketMQListener<MsgSendMessageDTO> {
     private HotRoomCache hotRoomCache;
     private PushService pushService;
 
-    @Override
+    @RabbitListener(queues = MqConstant.SEND_MSG_TOPIC)
     public void onMessage(MsgSendMessageDTO dto) {
         Message message = messageDao.getById(dto.getMsgId());
         if (Objects.isNull(message)) {

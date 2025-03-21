@@ -16,10 +16,12 @@ HuLa-IM:
     AESKEY: 7iNecFLZ8nbtCaMntHYEruSHP1Mk8FmGvrkHwnJzwug
   JWT: #JWT配置
     SECRET: dsfsdfsdfsdfsd
-  ROCKETMQ: #rocketmq配置
-    NAME-SERVER: 127.0.0.1:9876
-    ACCESS-KEY: nongyehong
-    SECRET-KEY: 919919919
+  RABBITMQ: #rabbitmq配置
+    HOST: 127.0.0.1
+    PORT: 5672
+    USERNAME: guest
+    PASSWORD: guest
+    VIRTUAL-HOST: /
 
 uid:
   database:

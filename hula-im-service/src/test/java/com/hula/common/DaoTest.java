@@ -4,7 +4,7 @@ import com.hula.HuLaImServiceApplication;
 import com.hula.core.user.service.LoginService;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.rocketmq.spring.core.RocketMQTemplate;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.redisson.api.RLock;
@@ -26,14 +26,14 @@ public class DaoTest {
     @Resource
     private LoginService loginService;
     @Resource
-    private RocketMQTemplate rocketMQTemplate;
+    private RabbitTemplate rabbitTemplate;
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
     @Test
     public void sendMQ() {
         Message<String> build = MessageBuilder.withPayload("123").build();
-        rocketMQTemplate.send("test-topic", build);
+        rabbitTemplate.convertAndSend("test-topic", build);
     }
 
     @Test

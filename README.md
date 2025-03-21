@@ -2,14 +2,14 @@
   <img width="350px" height="150px" src="preview/hula.png" />
 </p>
 
-<p align="center">一款基于SpringBoot3、Netty、MyBatis-Plus和RocketMQ构建的即时通讯系统服务端</p>
+<p align="center">一款基于SpringBoot3、Netty、MyBatis-Plus和RabbitMQ构建的即时通讯系统服务端</p>
 
 <div align="center">
   <img src="https://img.shields.io/badge/spring-boot3-brightgreen?logo=springboot
 ">
   <img src="https://img.shields.io/badge/Netty-343434?logo=netty&logoColor=white">
   <img src="https://img.shields.io/badge/MyBatis--Plus-00A1E9?logo=mybatis&logoColor=white">
-  <img src="https://img.shields.io/badge/RocketMQ-D77310?logo=apacherocketmq&logoColor=white">
+  <img src="https://img.shields.io/badge/RabbitMQ-FF6600?logo=rabbitmq&logoColor=white">
   <img src="https://img.shields.io/badge/Redis-DC382D?logo=redis&logoColor=white">
   <img src="https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=white">
   <img src="https://img.shields.io/badge/WebSocket-010101?logo=websocket&logoColor=white">
@@ -34,7 +34,7 @@
 
 ## 项目介绍
 
-HuLa-Server 是一款基于 SpringBoot3、Netty、MyBatis-Plus 和 RocketMQ 构建的即时通讯系统服务端。它采用了微服务架构设计，提供高性能的实时通信能力，支持单聊、群聊、消息推送等核心功能。系统具有高可扩展性和可靠性，适用于各类即时通讯场景。
+HuLa-Server 是一款基于 SpringBoot3、Netty、MyBatis-Plus 和 RabbitMQ 构建的即时通讯系统服务端。它采用了微服务架构设计，提供高性能的实时通信能力，支持单聊、群聊、消息推送等核心功能。系统具有高可扩展性和可靠性，适用于各类即时通讯场景。
 
 ## 技术栈
 
@@ -44,7 +44,7 @@ HuLa-Server 是一款基于 SpringBoot3、Netty、MyBatis-Plus 和 RocketMQ 构�
 
 - **MyBatis-Plus**: 为MyBatis提供了强大的增强功能和插件，简化了数据库操作，提供了代码生成器、分页插件、性能分析等功能，大大提高了开发效率。
 
-- **RocketMQ**: 分布式消息中间件，用于处理系统间的异步通信，支持消息的可靠传递、顺序消息、事务消息等特性，保证了系统的可扩展性和解耦性。
+- **RabbitMQ**: 分布式消息中间件，用于处理系统间的异步通信，支持消息的可靠传递、发布/订阅模式、消息路由等特性，保证了系统的可扩展性和解耦性。
 
 - **Redis**: 高性能的内存数据库，用于存储用户会话信息、消息缓存等数据，提供了高速的数据访问能力。
 

@@ -2,14 +2,14 @@
   <img width="350px" height="150px" src="preview/hula.png" />
 </p>
 
-<p align="center">An instant messaging system server built with SpringBoot3, Netty, MyBatis-Plus and RocketMQ</p>
+<p align="center">An instant messaging system server built with SpringBoot3, Netty, MyBatis-Plus and RabbitMQ</p>
 
 <div align="center">
   <img src="https://img.shields.io/badge/spring-boot3-brightgreen?logo=springboot
 ">
   <img src="https://img.shields.io/badge/Netty-343434?logo=netty&logoColor=white">
   <img src="https://img.shields.io/badge/MyBatis--Plus-00A1E9?logo=mybatis&logoColor=white">
-  <img src="https://img.shields.io/badge/RocketMQ-D77310?logo=apacherocketmq&logoColor=white">
+  <img src="https://img.shields.io/badge/RabbitMQ-FF6600?logo=rabbitmq&logoColor=white">
   <img src="https://img.shields.io/badge/Redis-DC382D?logo=redis&logoColor=white">
   <img src="https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=white">
   <img src="https://img.shields.io/badge/WebSocket-010101?logo=websocket&logoColor=white">
@@ -34,7 +34,7 @@
 
 ## Project Introduction
 
-HuLa-Server is an instant messaging system server built with SpringBoot3, Netty, MyBatis-Plus and RocketMQ. It adopts a microservice architecture design, providing high-performance real-time communication capabilities, supporting core features such as private chat, group chat, and message push. The system has high scalability and reliability, suitable for various instant messaging scenarios.
+HuLa-Server is an instant messaging system server built with SpringBoot3, Netty, MyBatis-Plus and RabbitMQ. It adopts a microservice architecture design, providing high-performance real-time communication capabilities, supporting core features such as private chat, group chat, and message push. The system has high scalability and reliability, suitable for various instant messaging scenarios.
 
 ## Technology Stack
 
@@ -44,7 +44,7 @@ HuLa-Server is an instant messaging system server built with SpringBoot3, Netty,
 
 - **MyBatis-Plus**: Provides powerful enhancement functions and plugins for MyBatis, simplifies database operations, provides code generator, pagination plugin, performance analysis, and other features, greatly improving development efficiency.
 
-- **RocketMQ**: A distributed message middleware, used for handling asynchronous communication between systems, supporting reliable message delivery, sequential messages, transaction messages, and other features, ensuring system scalability and decoupling.
+- **RabbitMQ**: A distributed message middleware, used for handling asynchronous communication between systems, supporting reliable message delivery, publish/subscribe pattern, message routing, and other features, ensuring system scalability and decoupling.
 
 - **Redis**: A high-performance in-memory database, used to store user session information, message cache, and other data, providing high-speed data access capabilities.
 
