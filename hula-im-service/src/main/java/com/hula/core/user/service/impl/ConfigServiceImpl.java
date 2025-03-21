@@ -2,7 +2,7 @@ package com.hula.core.user.service.impl;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
-import com.alibaba.fastjson.JSON;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.hula.common.constant.RedisKey;
 import com.hula.core.user.domain.entity.Config;
@@ -26,6 +26,7 @@ import java.util.List;
 public class ConfigServiceImpl implements ConfigService {
 
 	private final ConfigMapper configMapper;
+	private final ObjectMapper objectMapper = new ObjectMapper();
 
 	/**
 	 * 重置参数缓存数据
@@ -81,9 +82,12 @@ public class ConfigServiceImpl implements ConfigService {
 		if (StrUtil.isEmpty(data)) {
 			return null;
 		}
-		return JSON.parseObject(data, t);
+		try {
+			return objectMapper.readValue(data, t);
+		} catch (Exception e) {
+			throw new RuntimeException("JSON 转换失败", e);
+		}
 	}
-
 	/**
 	 * 走缓存获取键值
 	 * @param name
